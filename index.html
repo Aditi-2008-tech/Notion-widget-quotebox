@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anime Quote Widget</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Press Start 2P', monospace;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 10px;
+      color: white;
+      text-align: center;
+      margin-bottom: 30px;
+      text-shadow: 0 0 8px #ffffffb2;
+      animation: glow 2s infinite alternate;
+    }
+
+    .quote-box {
+      width: 90%;
+      max-width: 300px;
+      background: #111;
+      border: 2px solid #333;
+      padding: 15px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 0 10px #444;
+    }
+
+    .quote {
+      font-size: 8px;
+      min-height: 100px;
+    }
+
+    .author {
+      margin-top: 10px;
+      font-size: 6px;
+      color: #aaa;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 5px #fff;
+      }
+      to {
+        text-shadow: 0 0 10px #ffffff;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome back, Aditi !!</h1>
+  <div class="quote-box">
+    <div id="quote" class="quote"></div>
+    <div id="author" class="author"></div>
+  </div>
+
+  <script>
+    const quotes = [
+      {
+        text: "Hard work is worthless for those that don’t believe in themselves.",
+        author: "Naruto Uzumaki"
+      },
+      {
+        text: "In the ninja world, those who break the rules are scum, but those who abandon their friends are worse than scum.",
+        author: "Kakashi Hatake"
+      },
+      {
+        text: "I don’t want to regret anything. I want to live a life where I can say I didn’t run away.",
+        author: "Yuji Itadori"
+      },
+      {
+        text: "Dying to win and risking death to win are completely different, Megumi.",
+        author: "Satoru Gojo"
+      },
+      {
+        text: "The country? The sky? I’m not fighting for those. I’m fighting for myself.",
+        author: "Gintoki Sakata"
+      },
+      {
+        text: "You yourself have to change first, or nothing will change for you!",
+        author: "Shinpachi Shimura"
+      },
+      {
+        text: "Even if I can’t do it now, I’ll get stronger and stronger until I can!",
+        author: "Naruto Uzumaki"
+      }
+    ];
+
+    let index = 0;
+    const quoteEl = document.getElementById('quote');
+    const authorEl = document.getElementById('author');
+
+    function showQuote() {
+      quoteEl.textContent = `"${quotes[index].text}"`;
+      authorEl.textContent = `— ${quotes[index].author}`;
+      index = (index + 1) % quotes.length;
+    }
+
+    showQuote();
+    setInterval(showQuote, 10000); // Change quote every 10 seconds
+  </script>
+</body>
+</html>
